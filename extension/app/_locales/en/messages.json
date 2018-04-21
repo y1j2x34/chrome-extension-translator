@@ -1,0 +1,41 @@
+{
+  "appName": {
+    "message": "AITranslator"
+  },
+  "appDescription": {
+    "message": "Translator"
+  },
+  "sourcePlaceholder": {
+      "message": "Enter words or sentences."
+  },
+  "selectGroupRecommended": {
+      "message": "Recommended"
+  },
+  "selectGroupOther": {
+      "message": "Others"
+  },
+  "lang_auto": {
+      "message": "Auto"
+  },
+  "lang_zh_CN": {
+      "message": "Chinese Simplified"
+  },
+  "lang_EN": {
+      "message": "English"
+  },
+  "lang_ko": {
+      "message": "Korean"
+  },
+  "lang_ja": {
+      "message": "Japanese"
+  },
+  "lang_ru": {
+      "message": "Russian"
+  },
+  "lang_pt": {
+      "message": "Portuguese"
+  },
+  "lang_es": {
+      "message": "Spanish"
+  }
+}

@@ -1,0 +1,106 @@
+html, body, div, button, i, textarea, select {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+}
+
+html, body {
+    width: 400px;
+    min-height: 8rem;
+    background-color:#f0f3f4;
+    color: #58666e;
+}
+body {
+    padding: 1rem;
+}
+.controllers{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.controllers .select-lang{
+    flex-grow: 2;
+}
+
+.controllers .switcher{
+    flex-grow: 0.2;
+    text-align: center;
+}
+
+.select-language-dropdown, .btn, .editor {
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(90,90,90,.1);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.429rem 1.1rem;
+    line-height: 1;
+    font-weight: 500;;
+    border-radius: 2px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-color: #dee5e7 #dee5e7 #d8e1e3;
+}
+.btn:hover, .btn:active, .btn:focus {
+    background-color: #edf1f2;
+    border-color: #c7d3d6;
+}
+.editor-wrapper {
+    margin-top: 1rem;
+}
+.editor-wrapper .editor {
+    width: 100%;
+    min-height: 4.854rem;
+    max-height: 12.657rem;
+    resize: none;
+    border: none;
+    border: 1px solid #cfdadd;
+}
+.editor-wrapper .editor:focus {
+    outline: none;
+    border-color: #23b7e5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.select-language-dropdown {
+    display: block;
+    color: #555;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 0.3rem 0.1rem;
+    width: 100%;
+}
+
+.select-language-dropdown:focus,
+.select-language-dropdown:active {
+    outline: none;
+    border: 1px solid #66afe9;
+    box-shadow: 0 1px 1px rgba(0,0,0,.075) inset, 0 0 8px rgba(82,168,236,.6);
+    transition: border linear .2s, box-shadow linear .2s;
+}
+
+.output-error, .output-loading, .output-result {
+    display: none;
+}
+
+.output-error.error, .output-loading.loading, .output-success.success {
+    display: block;
+}
+.output-error {
+    color: #f05050;
+}

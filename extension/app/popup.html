@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- build:css styles/popup-vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link href="styles/main.css" rel="stylesheet">
+    <!-- endbuild -->
+</head>
+
+<body uku-application>
+
+    <form>
+        <div class="controllers">
+            <div class="select-lang">
+                <select class="select-language-dropdown" uku-selected="app.form.source">
+                    <option uku-repeat="item in app.languages" uku-value="item.value" uku-data-item="item.value">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="switcher">
+                <a class="btn" uku-onclick="app.exchanggeLanguage()">
+                    <i class="fa fa-1x fa-exchange-alt"></i>
+                </a>
+            </div>
+            <div class="select-lang">
+                <select class="select-language-dropdown" id="select-target" uku-selected="app.form.target">
+                    <option uku-repeat="item in app.languages" uku-value="item.value" uku-data-item="item.value">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="editor-wrapper">
+            <textarea class="editor" cols="85" rows="1" uku-model="app.text" uku-placeholder="app.locale.sourcePlaceholder" uku-onkeyup="app.onTextareaKeyup()"></textarea>
+        </div>
+    </form>
+    <div uku-class="'output-loading ' + app.status"></div>
+    <div uku-class="'output-error ' + app.status">
+        未知错误，请稍后重试！
+    </div>
+    <div uku-class="'output-result ' + app.status">
+        
+    </div>
+    <!-- build:js scripts/popup-vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/ukulelejs/dist/uku.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/popup.js -->
+    <script src="scripts/popup.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>

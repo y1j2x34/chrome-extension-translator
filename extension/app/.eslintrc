@@ -1,0 +1,11 @@
+{
+    "extends": "../.eslintrc",
+    "env": {
+        "node": false,
+        "webextensions": true,
+        "es6": true
+    },
+    "globals": {
+        "way": true
+    }
+}
