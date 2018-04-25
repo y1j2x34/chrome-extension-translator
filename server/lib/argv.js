@@ -9,11 +9,14 @@ const parsePort = (str) => {
     return port;
 }
 
+
 program
 .version(package.version)
 .option('-p, --port <port>', 'Port of this server', parsePort)
+.option('-s, --storage <path>', 'Path of sqlite database file.')
 .parse(process.argv)
 
 module.exports = {
-    port: program.port || package.config.port
+    port: program.port || package.config.port,
+    storage: program.storage || package.config.storage
 };
