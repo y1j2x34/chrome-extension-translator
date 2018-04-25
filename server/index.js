@@ -19,8 +19,13 @@ const wrap = ({handle, url, name}) => {
         let resp;
         try {
             const ret = await handle.call(this, ctx, ctx.params);
+            if(ret instanceof Buffer) {
+                ctx.body = ret;
+                ctx.response.type = 'application/otec-stream';
+                return;
+            }
             resp = {
-                code: '0',
+                errorCode: '0',
                 data: ret,
                 message: 'success'
             };
@@ -28,12 +33,12 @@ const wrap = ({handle, url, name}) => {
             if(error instanceof Error) {
                 logger.error('An error occurred while handling request %s', error.toString())
                 resp = {
-                    code: '-1',
+                    errorCode: '-1',
                     message: 'Unknown error'
                 };
             } else {
                 resp = {
-                    code: error.errorCode,
+                    errorCode: error.errorCode,
                     message: 'API Error'
                 };
             }
@@ -54,7 +59,10 @@ for(let [filename, controller] of Object.entries(controllers)){
     }
 
     router[method](controller.url, wrap(controller));
-    initializePromises.push(controller.init(app));
+    if(typeof controller.init === 'function') {
+        initializePromises.push(controller.init(app));
+    }
+    logger.debug('mapping controller: [%s] %s', controller.url, controller.method);
 }
 
 app.use(router.routes());

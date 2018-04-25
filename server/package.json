@@ -23,7 +23,8 @@
     "config": {
         "port": 17658,
         "storage": "./caches.db",
-        "cacheExpire": 172800000
+        "cacheExpire": 172800000,
+        "voiceCacheSize": 4000
     },
     "log4js": {
         "appenders": {
