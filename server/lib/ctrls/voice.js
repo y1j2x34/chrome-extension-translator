@@ -30,7 +30,6 @@ let cache = new class {
 }(argv.voiceCacheSize);
 
 exports.handle = async (ctx, { query }) => {
-    var api = 'http://openapi.youdao.com/ttsapi';
     let key = query;
     let buffer = cache.get(key);
     if (buffer) {
@@ -43,7 +42,6 @@ exports.handle = async (ctx, { query }) => {
         return map;
     }, {});
     buffer = await youdao.ttsapi(querymap);
-    console.info(buffer);
     if(buffer instanceof Buffer) {
         cache.put(key, buffer);
     }
