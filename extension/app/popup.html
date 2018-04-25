@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- build:css styles/popup-vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.css">
+    <link rel="stylesheet" href="./bower_components//fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css styles/main.css -->
@@ -13,40 +13,68 @@
     <!-- endbuild -->
 </head>
 
-<body uku-application>
+<body ng-controller="ApplicationController as app">
 
     <form>
         <div class="controllers">
             <div class="select-lang">
-                <select class="select-language-dropdown" uku-selected="app.form.source">
-                    <option uku-repeat="item in app.languages" uku-value="item.value" uku-data-item="item.value">{{item.name}}</option>
+                <select class="select-language-dropdown" ng-model="app.form.source" ng-options="item.value as item.name for item in app.languages">
                 </select>
             </div>
             <div class="switcher">
-                <a class="btn" uku-onclick="app.exchanggeLanguage()">
+                <a class="btn" ng-click="app.exchanggeLanguage()">
                     <i class="fa fa-1x fa-exchange-alt"></i>
                 </a>
             </div>
             <div class="select-lang">
-                <select class="select-language-dropdown" id="select-target" uku-selected="app.form.target">
-                    <option uku-repeat="item in app.languages" uku-value="item.value" uku-data-item="item.value">{{item.name}}</option>
+                <select class="select-language-dropdown" ng-model="app.form.target" ng-options="item.value as item.name for item in app.languages">
                 </select>
             </div>
         </div>
         <div class="editor-wrapper">
-            <textarea class="editor" cols="85" rows="1" uku-model="app.text" uku-placeholder="app.locale.sourcePlaceholder" uku-onkeyup="app.onTextareaKeyup()"></textarea>
+            <textarea class="editor" cols="85" rows="1" ng-model="app.text" autofocus app-editor app-attrs="{placeholder: app.locale.sourcePlaceholder}" ng-keyup="app.onTextareaKeyup($event)"></textarea>
         </div>
     </form>
-    <div uku-class="'output-loading ' + app.status"></div>
-    <div uku-class="'output-error ' + app.status">
-        未知错误，请稍后重试！
+    <div class="output-loading" ng-class="app.status"></div>
+    <div class="output-error" ng-class="app.status" ng-bind="app.output.message">
     </div>
-    <div uku-class="'output-result ' + app.status">
-        
+    <div class="output-success" ng-class="app.status">
+        <span ng-if="!app.output.basic && app.output.translation" ng-bind="app.output.translation.join(';')"></span>
+        <div ng-if="!!app.output.basic">
+            <div class="phonetic portlet" ng-if="app.output.basic.phonetic">
+                <span ng-bind="app.output.query"></span>： <span ng-bind="app.output.basic.phonetic"></span>
+            </div>
+            <dl class="pronounce-list portlet" ng-if="app.output.basic['uk-phonetic'] || app.output.basic['us-phonetic']">
+                <dt ng-if="app.output.basic['uk-phonetic']">
+                    英 <span class="phonetic">[{{app.output.basic['uk-phonetic']}}]</span>
+                </dt>
+                <dd ng-if="app.output.basic['uk-phonetic']">
+                    <app-audio src="app.output.basic['uk-speech']"/>
+                </dd>
+                <dt ng-if="app.output.basic['us-phonetic']">
+                    美 <span class="phonetic">[{{app.output.basic['us-phonetic']}}]</span>
+                </dt>
+                <dd ng-if="app.output.basic['us-phonetic']">
+                    <app-audio src="app.output.basic['us-speech']"/>
+                </dd>
+            </dl>
+            <ul class="explain-list portlet" ng-if="!!app.output.basic.explains">
+                <li ng-repeat="item in app.output.basic.explains" ng-bind="item"></li>
+            </ul>
+        </div>
+        <div class="web-explain" ng-if="!!app.output.web">
+            <h4>网络释义</h4>
+            <ul>
+                <li ng-repeat="item in app.output.web">
+                    <h5 ng-bind="item.key"></h5>
+                    <div ng-bind="item.value.join(';')"></div>
+                </li>
+            </ul>
+        </div>
     </div>
     <!-- build:js scripts/popup-vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/ukulelejs/dist/uku.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

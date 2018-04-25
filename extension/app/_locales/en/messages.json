@@ -1,41 +1,65 @@
 {
-  "appName": {
-    "message": "AITranslator"
-  },
-  "appDescription": {
-    "message": "Translator"
-  },
-  "sourcePlaceholder": {
-      "message": "Enter text"
-  },
-  "selectGroupRecommended": {
-      "message": "Recommended"
-  },
-  "selectGroupOther": {
-      "message": "Others"
-  },
-  "lang_auto": {
-      "message": "Auto"
-  },
-  "lang_zh_CN": {
-      "message": "Chinese Simplified"
-  },
-  "lang_EN": {
-      "message": "English"
-  },
-  "lang_ko": {
-      "message": "Korean"
-  },
-  "lang_ja": {
-      "message": "Japanese"
-  },
-  "lang_ru": {
-      "message": "Russian"
-  },
-  "lang_pt": {
-      "message": "Portuguese"
-  },
-  "lang_es": {
-      "message": "Spanish"
-  }
+    "appName": {
+        "message": "AITranslator"
+    },
+    "appDescription": {
+        "message": "Translator Extension"
+    },
+    "sourcePlaceholder": {
+        "message": "Enter text"
+    },
+    "selectGroupRecommended": {
+        "message": "Recommended"
+    },
+    "selectGroupOther": {
+        "message": "Others"
+    },
+    "lang_auto": {
+        "message": "Auto"
+    },
+    "lang_zh_CN": {
+        "message": "Chinese Simplified"
+    },
+    "lang_EN": {
+        "message": "English"
+    },
+    "lang_ko": {
+        "message": "Korean"
+    },
+    "lang_ja": {
+        "message": "Japanese"
+    },
+    "lang_ru": {
+        "message": "Russian"
+    },
+    "lang_pt": {
+        "message": "Portuguese"
+    },
+    "lang_es": {
+        "message": "Spanish"
+    },
+    "us": {
+        "message": "US"
+    },
+    "uk": {
+        "message": "UK"
+    },
+    "unkown_error": {
+        "message": "Unknown Error, Please try again later."
+    },
+    "code_103": {
+        "message": "Cannot handle large text translations."
+    },
+    "code_301": {
+        "message": "Dictionary query failed."
+    },
+    "code_302": {
+        "message": "Translation query failed."
+    },
+    "code_411": {
+        "message": "There are too many connected users. Please try again later."
+    },
+    "code_412": {
+        "message": "Service is overloaded. Please try again later."
+    }
 }

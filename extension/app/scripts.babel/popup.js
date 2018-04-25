@@ -1,35 +1,13 @@
-import messages from './messages';
-import languages from '../languages.json';
+import app from './app.module';
+import './app.config';
+import ApplicationController from './app.controller';
+import attrDirective from './attr.directive';
+import appEditorDirective from './editor.directive';
+import appAudioDirective from './audio.directive';
 
-let uku = new Ukulele();
+app.controller(ApplicationController.name, ApplicationController);
+app.directive(attrDirective.name, attrDirective);
+app.directive(appEditorDirective.name, appEditorDirective);
+app.directive(appAudioDirective.name, appAudioDirective);
 
-class ApplicationController {
-    constructor(){
-        this.locale = messages;
-        this.languages = languages.map(lang => ({
-            value: lang,
-            name: messages['lang_' + lang]
-        }));
-        this.form = {
-            source: 'auto',
-            target: 'auto'
-        };
-        this.text = '';
-        this.status = 'error';
-        this.output = {};
-    }
-    exchanggeLanguage(){
-        [this.form.source, this.form.target] = [this.form.target, this.form.source];
-    }
-    onTextareaKeyup(event) {
-        if(event.keyCode === 13) {
-
-        }
-    }
-}
-
-uku.registerController('app', new ApplicationController());
-
-window.onload = function(){
-    uku.init();
-};
+app.bootstrap();

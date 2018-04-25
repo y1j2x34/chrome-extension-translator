@@ -3,7 +3,7 @@
     "message": "AITranslator"
   },
   "appDescription": {
-    "message": "提供便捷、准确的多语种即时翻译功能。"
+    "message": "翻译插件"
   },
   "sourcePlaceholder": {
       "message": "请输入单词或句子"
@@ -13,6 +13,12 @@
   },
   "selectGroupOther": {
       "message": "其它"
+  },
+  "us": {
+      "message": "美"
+  },
+  "uk": {
+      "message": "英"
   },
   "lang_auto": {
       "message": "检测"
@@ -37,5 +43,23 @@
   },
   "lang_es": {
       "message": "西班牙文"
+  },
+  "unkown_error": {
+      "message": "未知错误，请稍后再试。"
+  },
+  "code_103": {
+      "message": "翻译文本过长！"
+  },
+  "code_301": {
+      "message": "词典查询失败！"
+  },
+  "code_302": {
+      "message": "翻译查询失败！"
+  },
+  "code_411": {
+      "message": "当前访问人数过多，请稍后再试。"
+  },
+  "code_412": {
+      "message": "后台压力大，请稍后再试。"
   }
 }

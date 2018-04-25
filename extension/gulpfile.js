@@ -147,7 +147,7 @@ gulp.task('watch', ['lint', 'babel'], () => {
     gulp.watch([
         'app/scripts.babel/**/*',
         'app/languages.json'
-    ], ['lint', 'babel']);
+    ], ['babel']);
     gulp.watch('bower.json', ['wiredep']);
 
     gulp.watch('app/manifest.json', ['chromeManifest']);

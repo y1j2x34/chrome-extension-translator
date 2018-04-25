@@ -1,46 +1,65 @@
-html, body, div, button, i, textarea, select {
+html,
+body,
+div,
+button,
+i,
+textarea,
+select,
+ul,
+ol,
+li,
+dl,
+dd,
+dt,
+label {
     margin: 0;
     padding: 0;
     font-size: 14px;
     box-sizing: border-box;
-    font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 400 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.42857143;
 }
 
-html, body {
+html,
+body {
     width: 400px;
     min-height: 8rem;
-    background-color:#f0f3f4;
+    background-color: #f0f3f4;
     color: #58666e;
 }
 body {
     padding: 1rem;
 }
-.controllers{
+.fa {
+    line-height: 1.42857143;
+}
+.controllers {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
 }
-.controllers .select-lang{
+.controllers .select-lang {
     flex-grow: 2;
 }
 
-.controllers .switcher{
+.controllers .switcher {
     flex-grow: 0.2;
     text-align: center;
 }
 
-.select-language-dropdown, .btn, .editor {
+.select-language-dropdown,
+.btn,
+.editor {
     border-radius: 2px;
-    box-shadow: 0 1px 1px rgba(90,90,90,.1);
+    box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
 }
 
 .btn {
     display: inline-block;
-    padding: 0.429rem 1.1rem;
+    padding: 0.215rem 1.1rem;
     line-height: 1;
-    font-weight: 500;;
+    font-weight: 500;
     border-radius: 2px;
     text-align: center;
     white-space: nowrap;
@@ -53,7 +72,9 @@ body {
     border: 1px solid transparent;
     border-color: #dee5e7 #dee5e7 #d8e1e3;
 }
-.btn:hover, .btn:active, .btn:focus {
+.btn:hover,
+.btn:active,
+.btn:focus {
     background-color: #edf1f2;
     border-color: #c7d3d6;
 }
@@ -71,15 +92,15 @@ body {
 .editor-wrapper .editor:focus {
     outline: none;
     border-color: #23b7e5;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 .select-language-dropdown {
     display: block;
     color: #555;
     border: 1px solid #ccc;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     height: 2rem;
     line-height: 2rem;
     padding: 0 0.3rem 0.1rem;
@@ -90,17 +111,85 @@ body {
 .select-language-dropdown:active {
     outline: none;
     border: 1px solid #66afe9;
-    box-shadow: 0 1px 1px rgba(0,0,0,.075) inset, 0 0 8px rgba(82,168,236,.6);
-    transition: border linear .2s, box-shadow linear .2s;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-.output-error, .output-loading, .output-result {
+.output-error,
+.output-loading,
+.output-result {
     display: none;
 }
 
-.output-error.error, .output-loading.loading, .output-success.success {
+.output-error.error,
+.output-loading.loading,
+.output-success.success {
     display: block;
+}
+.output-success {
+    max-height: 500px;
+    overflow-y: auto;
 }
 .output-error {
     color: #f05050;
+}
+
+.pronounce-list {
+    margin: 1em 0;
+    list-style: none;
+    overflow: hidden;
+}
+.pronounce-list dt {
+    font-weight: bold;
+}
+.pronounce-list dt,
+.pronounce-list dd {
+    float: left;
+    line-height: 1.42857143;
+}
+.pronounce-list dd + dt {
+    margin-left: 2.14em;
+}
+.pronounce-list label {
+    display: inline-block;
+    padding: 0 0.1em;
+    cursor: pointer;
+}
+.pronounce-list dd {
+    margin-left: 0.3em;
+}
+.pronounce-list .phonetic {
+    color: #a0a0a0;
+    font-weight: 400;
+}
+.pronounce-list .fa {
+    font-size: 1.4em;
+    line-height: 1.1;
+    color: #1aaedb;
+}
+
+.explain-list {
+    margin: 1em 0;
+    list-style: none;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+.portlet {
+    border-bottom: 1px solid #ccc;
+}
+.phonetic {
+    padding: 0.5em 0;
+}
+.web-explain ul {
+    list-style: none;
+}
+
+.web-explain h5 {
+    margin: 0;
+}
+.web-explain h4 {
+    margin: 0.5em 0;
+}
+.web-explain ul li + li {
+    margin-top: 0.5em;
 }
