@@ -9,3 +9,4 @@ extension/package
 extension/app/scripts
 server/docking.js
 server/apikey.js
+/server/caches.db
