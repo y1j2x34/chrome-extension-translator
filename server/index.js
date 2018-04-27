@@ -31,7 +31,7 @@ const wrap = ({handle, url, name}) => {
             };
         } catch (error) {
             if(error instanceof Error) {
-                logger.error('An error occurred while handling request %s', error.toString())
+                logger.error('An error occurred while handling request %s: \r\n%s', error.message, error.stack)
                 resp = {
                     errorCode: '-1',
                     message: 'Unknown error'
