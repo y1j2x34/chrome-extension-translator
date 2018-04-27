@@ -2,6 +2,9 @@ import messages from './messages';
 import languages from '../languages.json';
 
 class ApplicationController {
+    static get name(){
+        return 'ApplicationController';
+    }
     static get $inject() {
         return ['$scope', '$http'];
     }
