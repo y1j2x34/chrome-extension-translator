@@ -15,16 +15,21 @@ const parseVoiceCacheSize = (str) => {
     }
     return size;
 }
+const parseBoolean = (str) => {
+
+}
 
 program
 .version(package.version)
 .option('-p, --port <port>', 'Port of this server', parsePort)
 .option('-s, --storage <path>', 'Path of sqlite database file.')
 .option('-v, --vsize <size>', 'Max size of voice cache', parseVoiceCacheSize)
+.option('--no-log-sql', 'Disable sql logging')
 .parse(process.argv)
 
 module.exports = {
     port: program.port || package.config.port,
     storage: program.storage || package.config.storage,
-    voiceCacheSize: program.vsize || package.config.voiceCacheSize
+    voiceCacheSize: program.vsize || package.config.voiceCacheSize,
+    loggingSql: program.logSql
 };

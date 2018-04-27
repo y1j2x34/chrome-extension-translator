@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const storage = require('./argv').storage;
+const {storage, loggingSql} = require('./argv');
 
 const db = new Sequelize('cache', '', '', {
     dialect: 'sqlite',
@@ -9,6 +9,7 @@ const db = new Sequelize('cache', '', '', {
         acquire: 30000,
         idle: 10000
     },
+    logging: loggingSql,
     storage: storage
 });
 

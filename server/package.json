@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start:prod": "node index.js --storage /home/data/storage/translator.db --no-log-sql"
     },
     "author": "",
     "license": "ISC",
@@ -24,7 +24,8 @@
         "port": 17658,
         "storage": "./caches.db",
         "cacheExpire": 172800000,
-        "voiceCacheSize": 4000
+        "voiceCacheSize": 4000,
+        "sql": true
     },
     "log4js": {
         "appenders": {
