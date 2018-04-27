@@ -57,6 +57,11 @@ gulp.task('images', () => {
         )
         .pipe(gulp.dest('dist/images'));
 });
+gulp.task('webfonts', () => {
+    return gulp.src(['app/bower_components/fontawesome/web-fonts-with-css/webfonts/fa-solid-900.*', '!**/*.svg', '!**/*.eot'], {
+        buffer: false
+    }).pipe(gulp.dest('dist/webfonts/'));
+});
 
 gulp.task('html', () => {
     return gulp
@@ -177,7 +182,7 @@ gulp.task('package', function() {
 });
 
 gulp.task('build', cb => {
-    runSequence('lint', 'babel', 'chromeManifest', ['html', 'images', 'extras'], 'size', cb);
+    runSequence('lint', 'babel', 'chromeManifest', ['html', 'images', 'extras','webfonts'], 'size', cb);
 });
 
 gulp.task('default', ['clean'], cb => {
