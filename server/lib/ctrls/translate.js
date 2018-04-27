@@ -14,6 +14,9 @@ function resolveSpeakUrl(url){
         return url;
     }
     let parsedURL = parse(url);
+    if(!parsedURL.query && url.startsWith('/voice/')) {
+        return url;
+    }
     return '/voice/' + Buffer.from(parsedURL.query).toString('base64');
 }
 
@@ -47,6 +50,6 @@ exports.handle = async (ctx, {from, to, text}) => {
     }
     console.info(basic);
     let ret = {basic,errorCode, query, speakUrl, tSpeakUrl, translation, web};
-    cache.putCache(from, to, text, ret);
+    await cache.putCache(from, to, text, ret);
     return ret;
 };
